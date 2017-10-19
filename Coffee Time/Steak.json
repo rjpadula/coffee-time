@@ -1,0 +1,28 @@
+
+{
+    "label":"Steak",
+    "times": [
+              {
+              "label":"Ready... Set... ",
+              "duration":5.0
+              },
+              {
+              "label":"Heads",
+              "duration":90
+              },
+              {
+              "label":"Tails",
+              "duration":90
+              },
+              {
+              "label":"Heads again",
+              "duration":90
+              },
+              {
+              "label":"Tails again",
+              "duration":90
+              }
+              
+              ]
+}
+

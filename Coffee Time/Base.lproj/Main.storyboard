@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="9pv-A4-QxB">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--French Press-->
+        <scene sceneID="hNz-n2-bh7">
+            <objects>
+                <viewController title="French Press" id="9pv-A4-QxB" customClass="TimerViewController" customModule="Coffee_Time" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
+                        <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8Y-SR-EAp">
+                                <rect key="frame" x="168" y="626" width="38" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="startPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="aRo-w4-Tq7"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZfX-gH-kek">
+                                <rect key="frame" x="144.5" y="575" width="85" height="43"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydm-wQ-jac">
+                                <rect key="frame" x="159.5" y="28" width="57" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vcC-4E-aKR">
+                                <rect key="frame" x="224.5" y="26" width="30" height="34"/>
+                                <state key="normal" title="➤"/>
+                                <connections>
+                                    <segue destination="uDP-w0-Qpe" kind="popoverPresentation" popoverAnchorView="vcC-4E-aKR" id="BRm-Pe-rjE">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="c8Y-SR-EAp" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="6if-T7-UID"/>
+                            <constraint firstItem="ydm-wQ-jac" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="IUl-H0-OBC"/>
+                            <constraint firstItem="vcC-4E-aKR" firstAttribute="leading" secondItem="ydm-wQ-jac" secondAttribute="trailing" constant="8" symbolic="YES" id="KhW-8x-hOk"/>
+                            <constraint firstItem="ZfX-gH-kek" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="Ksy-SX-1qK"/>
+                            <constraint firstItem="c8Y-SR-EAp" firstAttribute="top" secondItem="ZfX-gH-kek" secondAttribute="bottom" constant="8" symbolic="YES" id="PvA-N7-VoV"/>
+                            <constraint firstItem="vcC-4E-aKR" firstAttribute="centerY" secondItem="ydm-wQ-jac" secondAttribute="centerY" id="cfX-0Q-2cV"/>
+                            <constraint firstItem="ydm-wQ-jac" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="8" symbolic="YES" id="etR-Mo-MYc"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="c8Y-SR-EAp" secondAttribute="bottom" constant="8" symbolic="YES" id="qT4-cR-APC"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="French Press" image="first" id="acW-dT-cKf"/>
+                    <connections>
+                        <outlet property="remainingTimeLabel" destination="ZfX-gH-kek" id="DGy-Zh-zST"/>
+                        <outlet property="stageLabel" destination="ydm-wQ-jac" id="CWI-6o-gfj"/>
+                        <outlet property="startButton" destination="c8Y-SR-EAp" id="oMM-LE-KPI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="750" y="-320"/>
+        </scene>
+        <!--Timer Set Table View Controller-->
+        <scene sceneID="kid-ub-qTY">
+            <objects>
+                <tableViewController id="uDP-w0-Qpe" customClass="TimerSetTableViewController" customModule="Coffee_Time" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="zw9-NL-XFI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="timer" textLabel="gZ4-lg-krW" detailTextLabel="qK4-c4-uLW" style="IBUITableViewCellStyleValue2" id="L4R-M7-zat">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="L4R-M7-zat" id="WXL-eL-fsG">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gZ4-lg-krW">
+                                            <rect key="frame" x="16" y="14" width="91" height="16"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qK4-c4-uLW">
+                                            <rect key="frame" x="113" y="14" width="35" height="16"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="LDr-wk-ZuD" kind="unwind" unwindAction="unwindToMainWithSegue:" id="DbW-uw-ytP"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="uDP-w0-Qpe" id="awm-XI-2Dm"/>
+                            <outlet property="delegate" destination="uDP-w0-Qpe" id="4tG-P5-8uW"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3MY-aq-WYb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="LDr-wk-ZuD" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1526" y="-321"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="first" width="30" height="30"/>
+    </resources>
+</document>

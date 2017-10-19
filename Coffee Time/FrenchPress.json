@@ -1,0 +1,19 @@
+
+{
+    "label":"French Press",
+    "times": [
+              {
+              "label":"Ready... Set... ",
+              "duration":5.0
+              },
+              {
+              "label":"Bloom",
+              "duration":60.0
+              },
+              {
+              "label":"Brew",
+              "duration":240.0
+              }
+              
+              ]
+}

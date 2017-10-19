@@ -1,0 +1,14 @@
+{
+    "label":"Test",
+    "times": [
+              {
+              "label":"Ready... Set... ",
+              "duration":5.0
+              },
+              {
+              "label":"Dance Off!",
+              "duration":3.0
+              }
+              
+              ]
+}
