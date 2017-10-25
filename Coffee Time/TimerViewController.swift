@@ -9,7 +9,7 @@
 import UIKit
 
 
-class TimerViewController: UIViewController {
+class TimerViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +18,9 @@ class TimerViewController: UIViewController {
         
         timerSet = timerSets.first
         remainingTimeLabel.text = "Press Start"
+        
+        timeSliceCollectionView.dataSource = self
+        timeSliceCollectionView.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -75,6 +78,41 @@ class TimerViewController: UIViewController {
         }
     }
 
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if let timerSet = timerSet {
+            return timerSet.slices.count
+        } else {
+            return 0
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = timeSliceCollectionView.dequeueReusableCell(withReuseIdentifier: TimerSliceViewCell.reuseIdentifier, for: indexPath)
+        if let cell = cell as? TimerSliceViewCell {
+            if let timerSet = timerSet {
+                cell.timeSlice = timerSet.slices[indexPath.row]
+            } else {
+                cell.timeSlice = nil
+            }
+        }
+        return cell
+    }
+    
+    @objc func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        // We will make all of the cells be half the width of the collection view and 100% of the height
+        let sectionInset = (collectionView.collectionViewLayout as! UICollectionViewFlowLayout).sectionInset
+        
+        // So get the height & width of the view, take the insets into acount
+        let availableWidth = collectionView.bounds.width - collectionView.contentInset.left - collectionView.contentInset.right - sectionInset.left - sectionInset.right
+        let availableHeight = collectionView.bounds.height - collectionView.contentInset.top - collectionView.contentInset.bottom - sectionInset.top - sectionInset.bottom
+
+        return CGSize(width: availableWidth / 2.0, height: availableHeight)
+    }
+    
     @IBAction func unwindToMain(segue: UIStoryboardSegue) {
     }
     
@@ -87,6 +125,7 @@ class TimerViewController: UIViewController {
                 startButton.isEnabled = false
             }
 
+            timeSliceCollectionView?.reloadData()
         }
     }
     
@@ -99,6 +138,7 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var stageLabel: UILabel!
     @IBOutlet weak var remainingTimeLabel: UILabel!
     @IBOutlet weak var startButton: UIButton!
-
+    @IBOutlet weak var timeSliceCollectionView: UICollectionView!
+    
 }
 

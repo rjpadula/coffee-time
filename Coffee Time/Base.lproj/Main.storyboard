@@ -5,7 +5,8 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -51,17 +52,57 @@
                                     </segue>
                                 </connections>
                             </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BK0-Cm-a1W">
+                                <rect key="frame" x="16" y="68" width="343" height="499"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9oi-ed-XAb">
+                                    <size key="itemSize" width="100" height="200"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="timer cell" id="wv5-La-fpw" customClass="TimerSliceViewCell" customModule="Coffee_Time" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="200"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="200"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vVZ-Ah-8Ag">
+                                                    <rect key="frame" x="29" y="173" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="vVZ-Ah-8Ag" secondAttribute="bottom" constant="6" id="VRh-sg-jOM"/>
+                                            <constraint firstItem="vVZ-Ah-8Ag" firstAttribute="centerX" secondItem="wv5-La-fpw" secondAttribute="centerX" id="qLq-7j-KgG"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="label" destination="vVZ-Ah-8Ag" id="wNW-f9-LmN"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="BK0-Cm-a1W" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="1oj-Rz-4vq"/>
                             <constraint firstItem="c8Y-SR-EAp" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="6if-T7-UID"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="vcC-4E-aKR" secondAttribute="trailing" id="7rN-wY-2rY"/>
                             <constraint firstItem="ydm-wQ-jac" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="IUl-H0-OBC"/>
                             <constraint firstItem="vcC-4E-aKR" firstAttribute="leading" secondItem="ydm-wQ-jac" secondAttribute="trailing" constant="8" symbolic="YES" id="KhW-8x-hOk"/>
                             <constraint firstItem="ZfX-gH-kek" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="Ksy-SX-1qK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="BK0-Cm-a1W" secondAttribute="trailing" id="Lar-lg-gmY"/>
                             <constraint firstItem="c8Y-SR-EAp" firstAttribute="top" secondItem="ZfX-gH-kek" secondAttribute="bottom" constant="8" symbolic="YES" id="PvA-N7-VoV"/>
                             <constraint firstItem="vcC-4E-aKR" firstAttribute="centerY" secondItem="ydm-wQ-jac" secondAttribute="centerY" id="cfX-0Q-2cV"/>
+                            <constraint firstItem="ZfX-gH-kek" firstAttribute="top" secondItem="BK0-Cm-a1W" secondAttribute="bottom" constant="8" symbolic="YES" id="eqZ-sa-HuT"/>
                             <constraint firstItem="ydm-wQ-jac" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="8" symbolic="YES" id="etR-Mo-MYc"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="c8Y-SR-EAp" secondAttribute="bottom" constant="8" symbolic="YES" id="qT4-cR-APC"/>
+                            <constraint firstItem="BK0-Cm-a1W" firstAttribute="top" secondItem="vcC-4E-aKR" secondAttribute="bottom" constant="8" symbolic="YES" id="vGs-qt-Wcy"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="French Press" image="first" id="acW-dT-cKf"/>
@@ -69,6 +110,7 @@
                         <outlet property="remainingTimeLabel" destination="ZfX-gH-kek" id="DGy-Zh-zST"/>
                         <outlet property="stageLabel" destination="ydm-wQ-jac" id="CWI-6o-gfj"/>
                         <outlet property="startButton" destination="c8Y-SR-EAp" id="oMM-LE-KPI"/>
+                        <outlet property="timeSliceCollectionView" destination="BK0-Cm-a1W" id="vnC-By-2U1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>

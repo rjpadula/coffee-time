@@ -20,6 +20,7 @@
 		D6D8483A1F92DD7B00CC5CCC /* TimerSetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D848391F92DD7B00CC5CCC /* TimerSetTableViewController.swift */; };
 		D6D8483C1F93014500CC5CCC /* FrenchPress.json in Resources */ = {isa = PBXBuildFile; fileRef = D6D8483B1F93014500CC5CCC /* FrenchPress.json */; };
 		D6D8483E1F93C75D00CC5CCC /* Steak.json in Resources */ = {isa = PBXBuildFile; fileRef = D6D8483D1F93C75D00CC5CCC /* Steak.json */; };
+		D6E5AA6D1F98DADA007EA9DB /* TimerSliceViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E5AA6C1F98DADA007EA9DB /* TimerSliceViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		D6D848391F92DD7B00CC5CCC /* TimerSetTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSetTableViewController.swift; sourceTree = "<group>"; };
 		D6D8483B1F93014500CC5CCC /* FrenchPress.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FrenchPress.json; sourceTree = "<group>"; };
 		D6D8483D1F93C75D00CC5CCC /* Steak.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Steak.json; sourceTree = "<group>"; };
+		D6E5AA6C1F98DADA007EA9DB /* TimerSliceViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSliceViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,18 +111,17 @@
 		D65CA97B1F63497500EC6B99 /* Coffee Time */ = {
 			isa = PBXGroup;
 			children = (
+				D65CA98A1F63497500EC6B99 /* Info.plist */,
 				D65CA97C1F63497500EC6B99 /* AppDelegate.swift */,
+				D6D848351F92D0BF00CC5CCC /* TimerSet.swift */,
+				D6D848391F92DD7B00CC5CCC /* TimerSetTableViewController.swift */,
 				D65CA97E1F63497500EC6B99 /* TimerViewController.swift */,
-				D65CA9821F63497500EC6B99 /* Main.storyboard */,
+				D6D848331F92D01700CC5CCC /* TimeSlice.swift */,
 				D65CA9851F63497500EC6B99 /* Assets.xcassets */,
 				D65CA9871F63497500EC6B99 /* LaunchScreen.storyboard */,
-				D65CA98A1F63497500EC6B99 /* Info.plist */,
-				D6D848331F92D01700CC5CCC /* TimeSlice.swift */,
-				D6D848351F92D0BF00CC5CCC /* TimerSet.swift */,
-				D6D848371F92D3DD00CC5CCC /* Test.json */,
-				D6D848391F92DD7B00CC5CCC /* TimerSetTableViewController.swift */,
-				D6D8483B1F93014500CC5CCC /* FrenchPress.json */,
-				D6D8483D1F93C75D00CC5CCC /* Steak.json */,
+				D65CA9821F63497500EC6B99 /* Main.storyboard */,
+				D6E5AA6B1F98D8D8007EA9DB /* Timer Configuration FIles */,
+				D6E5AA6C1F98DADA007EA9DB /* TimerSliceViewCell.swift */,
 			);
 			path = "Coffee Time";
 			sourceTree = "<group>";
@@ -141,6 +142,16 @@
 				D65CA9A01F63497500EC6B99 /* Info.plist */,
 			);
 			path = "Coffee TimeUITests";
+			sourceTree = "<group>";
+		};
+		D6E5AA6B1F98D8D8007EA9DB /* Timer Configuration FIles */ = {
+			isa = PBXGroup;
+			children = (
+				D6D8483B1F93014500CC5CCC /* FrenchPress.json */,
+				D6D8483D1F93C75D00CC5CCC /* Steak.json */,
+				D6D848371F92D3DD00CC5CCC /* Test.json */,
+			);
+			path = "Timer Configuration FIles";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,7 +222,7 @@
 				TargetAttributes = {
 					D65CA9781F63497500EC6B99 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = T6DEXX2P2A;
+						DevelopmentTeam = 7Y5KSV6YGR;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
@@ -290,6 +301,7 @@
 				D6D8483A1F92DD7B00CC5CCC /* TimerSetTableViewController.swift in Sources */,
 				D65CA97F1F63497500EC6B99 /* TimerViewController.swift in Sources */,
 				D6D848361F92D0BF00CC5CCC /* TimerSet.swift in Sources */,
+				D6E5AA6D1F98DADA007EA9DB /* TimerSliceViewCell.swift in Sources */,
 				D6D848341F92D01700CC5CCC /* TimeSlice.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -456,10 +468,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = T6DEXX2P2A;
+				DEVELOPMENT_TEAM = 7Y5KSV6YGR;
 				INFOPLIST_FILE = "Coffee Time/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.deepdishtech.Coffee-Time";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rjpadula.Coffee-Time";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -470,10 +482,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = T6DEXX2P2A;
+				DEVELOPMENT_TEAM = 7Y5KSV6YGR;
 				INFOPLIST_FILE = "Coffee Time/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.deepdishtech.Coffee-Time";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rjpadula.Coffee-Time";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
