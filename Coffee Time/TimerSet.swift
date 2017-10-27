@@ -47,6 +47,7 @@ class TimerSet {
             return nil
         }
     }
+    
     private(set) var label  = ""
     private(set) var slices = [TimeSlice]()
 }

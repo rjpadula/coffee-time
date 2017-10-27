@@ -8,7 +8,12 @@
               {
               "label":"Dance Off!",
               "duration":3.0
+              },
+              {
+              "label":"Round Two",
+              "duration":2.0
               }
+              
               
               ]
 }

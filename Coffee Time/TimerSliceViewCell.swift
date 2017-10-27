@@ -12,10 +12,22 @@ class TimerSliceViewCell: UICollectionViewCell {
     
     static let reuseIdentifier = "timer cell"
     
+    func complete() {
+        remainingLabel.text = "Done"
+    }
+    
+    func update(slice:TimeSlice) {
+        remainingLabel.text = String(slice.remain)
+    }
+    
     var timeSlice:TimeSlice? {
         didSet {
+            timeSlice?.cell = self
             if let timeSlice = timeSlice {
                 label.text = timeSlice.label
+                // call common function to set stuff that changes
+                update(slice: timeSlice)
+
             } else {
                 label.text = "??"
             }
@@ -23,4 +35,5 @@ class TimerSliceViewCell: UICollectionViewCell {
     }
     
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var remainingLabel: UILabel!
 }

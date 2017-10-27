@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class TimerViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     override func viewDidLoad() {
@@ -44,7 +43,6 @@ class TimerViewController: UIViewController, UICollectionViewDataSource, UIColle
             }
             // Start the timer
             index = timerSet.slices.startIndex
-            remain = timerSet.slices[index].duration
             timer = Timer.scheduledTimer(timeInterval: period, target: self, selector: #selector(timerTick), userInfo: nil, repeats: true)
         }
     }
@@ -54,9 +52,11 @@ class TimerViewController: UIViewController, UICollectionViewDataSource, UIColle
             return
         }
         // How long ?
-        remain -= period
-        if remain <= 0.0 {
+        let slice = timerSet.slices[index]
+        slice.remain -= period
+        if slice.remain <= 0.0 {
             // End of the time period!
+            slice.cell?.complete()
             index += 1
             if index == timerSet.slices.endIndex {
                 // That's the total end of everything!
@@ -66,10 +66,12 @@ class TimerViewController: UIViewController, UICollectionViewDataSource, UIColle
             } else {
                 // On to the next period
                 stageLabel.text = timerSet.slices[index].label
-                remain = timerSet.slices[index].duration
+                
+                timeSliceCollectionView.scrollToItem(at: IndexPath(row: index, section: 0), at: .centeredHorizontally, animated: true)
             }
+        } else {
+            slice.cell?.update(slice: slice)
         }
-        remainingTimeLabel.text = String(remain)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -83,21 +85,13 @@ class TimerViewController: UIViewController, UICollectionViewDataSource, UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if let timerSet = timerSet {
-            return timerSet.slices.count
-        } else {
-            return 0
-        }
+        return timerSet?.slices.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = timeSliceCollectionView.dequeueReusableCell(withReuseIdentifier: TimerSliceViewCell.reuseIdentifier, for: indexPath)
         if let cell = cell as? TimerSliceViewCell {
-            if let timerSet = timerSet {
-                cell.timeSlice = timerSet.slices[indexPath.row]
-            } else {
-                cell.timeSlice = nil
-            }
+            cell.timeSlice = timerSet?.slices[indexPath.row]
         }
         return cell
     }
@@ -121,16 +115,18 @@ class TimerViewController: UIViewController, UICollectionViewDataSource, UIColle
         didSet {
             if let timerSet = timerSet {
                 stageLabel.text = timerSet.label
+                
+                for slice in timerSet.slices {
+                    slice.reset()
+                }
             } else {
                 startButton.isEnabled = false
             }
-
             timeSliceCollectionView?.reloadData()
         }
     }
     
     var index = 0
-    var remain = 0.0
     let period = 1.0
 
     var timer:Timer?

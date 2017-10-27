@@ -12,6 +12,12 @@ class TimeSlice {
     init(label:String, duration:TimeInterval) {
         self.label = label
         self.duration = duration
+
+        reset()
+    }
+    /// reset to re-run the timer
+    func reset() {
+        remain = duration
     }
     // initializer for loading from a json file
     convenience init?(json:NSDictionary) {
@@ -26,4 +32,9 @@ class TimeSlice {
     }
     let duration:TimeInterval
     let label:String
+    
+    
+    /// These change as the timer runs
+    var remain:TimeInterval = 0.0
+    weak var cell:TimerSliceViewCell?
 }
