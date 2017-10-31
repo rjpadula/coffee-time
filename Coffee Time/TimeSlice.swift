@@ -8,33 +8,22 @@
 
 import Foundation
 
-class TimeSlice {
-    init(label:String, duration:TimeInterval) {
-        self.label = label
-        self.duration = duration
-
-        reset()
-    }
+class TimeSlice : Decodable {
     /// reset to re-run the timer
     func reset() {
         remain = duration
     }
-    // initializer for loading from a json file
-    convenience init?(json:NSDictionary) {
-        // JSON must provide the label and the duration
-        guard let label = json["label"] as? String, let duration = json["duration"] as? NSNumber else {
-            NSLog("Bad data in \(json.debugDescription)")
-            return nil
-        }
-        // call the real initializer
-        self.init(label: label, duration: duration.doubleValue)
-        // We can add optional values here
-    }
-    let duration:TimeInterval
+
+    let duration:Double
     let label:String
     
+    enum CodingKeys: String, CodingKey {
+        case duration
+        case label
+    }
     
     /// These change as the timer runs
     var remain:TimeInterval = 0.0
-    weak var cell:TimerSliceViewCell?
+    weak var cell:TimerSliceViewCell? = nil
 }
+

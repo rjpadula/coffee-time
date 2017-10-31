@@ -29,8 +29,12 @@ class TimerViewController: UIViewController, UICollectionViewDataSource, UIColle
 
     func loadJSONfiles() {
         if let files = Bundle.main.urls(forResourcesWithExtension: "json", subdirectory: nil) {
-        
-            timerSets = files.flatMap { TimerSet(url:$0) }
+            timerSets = files.flatMap { (url:URL) -> TimerSet in
+                let data = try! Data(contentsOf: url)
+                let jsonDecoder = JSONDecoder()
+                let set = try! jsonDecoder.decode(TimerSet.self, from: data)
+                return set
+            }
         }
     }
     @IBAction func startPressed(_ sender: Any) {
