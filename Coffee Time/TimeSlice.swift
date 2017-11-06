@@ -16,10 +16,12 @@ class TimeSlice : Decodable {
 
     let duration:Double
     let label:String
+    let startSound:String?
     
     enum CodingKeys: String, CodingKey {
         case duration
         case label
+        case startSound
     }
     
     /// These change as the timer runs

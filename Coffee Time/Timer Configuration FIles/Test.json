@@ -7,7 +7,8 @@
               },
               {
               "label":"Dance Off!",
-              "duration":3.0
+              "duration":3.0,
+              "startSound":"StrangeSlip.caf"
               },
               {
               "label":"Round Two",

@@ -14,6 +14,10 @@
 		D65CA9891F63497500EC6B99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D65CA9871F63497500EC6B99 /* LaunchScreen.storyboard */; };
 		D65CA9941F63497500EC6B99 /* Coffee_TimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65CA9931F63497500EC6B99 /* Coffee_TimeTests.swift */; };
 		D65CA99F1F63497500EC6B99 /* Coffee_TimeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65CA99E1F63497500EC6B99 /* Coffee_TimeUITests.swift */; };
+		D6BB5D131FAFE29600DD7AC4 /* SmallHerdCattle.caf in Resources */ = {isa = PBXBuildFile; fileRef = D6BB5D0F1FAFE29600DD7AC4 /* SmallHerdCattle.caf */; };
+		D6BB5D141FAFE29600DD7AC4 /* ShipsBell.caf in Resources */ = {isa = PBXBuildFile; fileRef = D6BB5D101FAFE29600DD7AC4 /* ShipsBell.caf */; };
+		D6BB5D151FAFE29600DD7AC4 /* BabblingBrook.caf in Resources */ = {isa = PBXBuildFile; fileRef = D6BB5D111FAFE29600DD7AC4 /* BabblingBrook.caf */; };
+		D6BB5D161FAFE29600DD7AC4 /* StrangeSlip.caf in Resources */ = {isa = PBXBuildFile; fileRef = D6BB5D121FAFE29600DD7AC4 /* StrangeSlip.caf */; };
 		D6D848341F92D01700CC5CCC /* TimeSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D848331F92D01700CC5CCC /* TimeSlice.swift */; };
 		D6D848361F92D0BF00CC5CCC /* TimerSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D848351F92D0BF00CC5CCC /* TimerSet.swift */; };
 		D6D848381F92D3DD00CC5CCC /* Test.json in Resources */ = {isa = PBXBuildFile; fileRef = D6D848371F92D3DD00CC5CCC /* Test.json */; };
@@ -54,6 +58,10 @@
 		D65CA99A1F63497500EC6B99 /* Coffee TimeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Coffee TimeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D65CA99E1F63497500EC6B99 /* Coffee_TimeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee_TimeUITests.swift; sourceTree = "<group>"; };
 		D65CA9A01F63497500EC6B99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6BB5D0F1FAFE29600DD7AC4 /* SmallHerdCattle.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SmallHerdCattle.caf; sourceTree = "<group>"; };
+		D6BB5D101FAFE29600DD7AC4 /* ShipsBell.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ShipsBell.caf; sourceTree = "<group>"; };
+		D6BB5D111FAFE29600DD7AC4 /* BabblingBrook.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BabblingBrook.caf; sourceTree = "<group>"; };
+		D6BB5D121FAFE29600DD7AC4 /* StrangeSlip.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = StrangeSlip.caf; sourceTree = "<group>"; };
 		D6D848331F92D01700CC5CCC /* TimeSlice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSlice.swift; sourceTree = "<group>"; };
 		D6D848351F92D0BF00CC5CCC /* TimerSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSet.swift; sourceTree = "<group>"; };
 		D6D848371F92D3DD00CC5CCC /* Test.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Test.json; sourceTree = "<group>"; };
@@ -111,6 +119,7 @@
 		D65CA97B1F63497500EC6B99 /* Coffee Time */ = {
 			isa = PBXGroup;
 			children = (
+				D6BB5D171FAFE2A400DD7AC4 /* Audio Files */,
 				D65CA98A1F63497500EC6B99 /* Info.plist */,
 				D65CA97C1F63497500EC6B99 /* AppDelegate.swift */,
 				D6D848351F92D0BF00CC5CCC /* TimerSet.swift */,
@@ -142,6 +151,17 @@
 				D65CA9A01F63497500EC6B99 /* Info.plist */,
 			);
 			path = "Coffee TimeUITests";
+			sourceTree = "<group>";
+		};
+		D6BB5D171FAFE2A400DD7AC4 /* Audio Files */ = {
+			isa = PBXGroup;
+			children = (
+				D6BB5D111FAFE29600DD7AC4 /* BabblingBrook.caf */,
+				D6BB5D101FAFE29600DD7AC4 /* ShipsBell.caf */,
+				D6BB5D0F1FAFE29600DD7AC4 /* SmallHerdCattle.caf */,
+				D6BB5D121FAFE29600DD7AC4 /* StrangeSlip.caf */,
+			);
+			path = "Audio Files";
 			sourceTree = "<group>";
 		};
 		D6E5AA6B1F98D8D8007EA9DB /* Timer Configuration FIles */ = {
@@ -270,9 +290,13 @@
 				D65CA9891F63497500EC6B99 /* LaunchScreen.storyboard in Resources */,
 				D6D8483C1F93014500CC5CCC /* FrenchPress.json in Resources */,
 				D6D848381F92D3DD00CC5CCC /* Test.json in Resources */,
+				D6BB5D141FAFE29600DD7AC4 /* ShipsBell.caf in Resources */,
 				D65CA9861F63497500EC6B99 /* Assets.xcassets in Resources */,
 				D6D8483E1F93C75D00CC5CCC /* Steak.json in Resources */,
 				D65CA9841F63497500EC6B99 /* Main.storyboard in Resources */,
+				D6BB5D161FAFE29600DD7AC4 /* StrangeSlip.caf in Resources */,
+				D6BB5D131FAFE29600DD7AC4 /* SmallHerdCattle.caf in Resources */,
+				D6BB5D151FAFE29600DD7AC4 /* BabblingBrook.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

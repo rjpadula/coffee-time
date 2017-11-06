@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class TimerViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
@@ -20,6 +21,12 @@ class TimerViewController: UIViewController, UICollectionViewDataSource, UIColle
         
         timeSliceCollectionView.dataSource = self
         timeSliceCollectionView.delegate = self
+        
+        // Need to request permission for local notifications
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+            // Enable or disable features based on authorization
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,12 +52,43 @@ class TimerViewController: UIViewController, UICollectionViewDataSource, UIColle
             guard let timerSet = timerSet else {
                 return
             }
+            // Set up all of the notifications
+            var totalTime = 0.0
+            var notificationIDs = [String]()
+            for slice in timerSet.slices {
+                // Add notification for start sound, if it has one
+                if let sound = slice.startSound {
+                    let id = addLocalNotification(title: timerSet.label, text: slice.label, sound: sound, when: totalTime)
+                    notificationIDs.append(id)
+                }
+                // Need to keep running total
+                totalTime += slice.duration
+            }
+            
             // Start the timer
             index = timerSet.slices.startIndex
             timer = Timer.scheduledTimer(timeInterval: period, target: self, selector: #selector(timerTick), userInfo: nil, repeats: true)
         }
     }
     
+    func addLocalNotification(title:String, text:String, sound:String, when:TimeInterval) -> String {
+        let content = UNMutableNotificationContent()
+        content.title = title
+        content.body = text
+        
+        // Deliver the notification in five seconds.
+        content.sound = UNNotificationSound(named: sound)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: when, repeats: false)
+        
+        // Schedule the notification.
+        let request = UNNotificationRequest(identifier: text, content: content, trigger: trigger)
+        let center = UNUserNotificationCenter.current()
+        center.add(request, withCompletionHandler: nil)
+        
+        NSLog("Adding notitication \(request.identifier)")
+
+        return text
+    }
     @IBAction func timerTick(_ timer:Timer) {
         guard let timerSet = timerSet else {
             return
